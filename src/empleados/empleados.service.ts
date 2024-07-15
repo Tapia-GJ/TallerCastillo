@@ -13,7 +13,7 @@ export class EmpleadosService {
     public findAll(){
         return this.usersRepository.find()
     }
-
+ 
     public createEmpleado(empleado: CreateEmpleadoDto){
         const newEmpleado = this.usersRepository.create(empleado)
         return this.usersRepository.save(newEmpleado)

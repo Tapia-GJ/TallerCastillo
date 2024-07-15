@@ -6,6 +6,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { EmpleadosModule } from './empleados/empleados.module';
 import { InventariosModule } from './inventarios/inventarios.module';
+import { AsistenciasModule } from './asistencias/asistencias.module';
 
 
 
@@ -27,6 +28,7 @@ import { InventariosModule } from './inventarios/inventarios.module';
     }),
     EmpleadosModule,
     InventariosModule,
+    AsistenciasModule,
     // AdelantoSueldoModule,
   ],
   controllers: [AppController],
