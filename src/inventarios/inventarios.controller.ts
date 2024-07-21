@@ -2,7 +2,6 @@ import { Body, Controller, Get, Param, Post, ParseIntPipe, Put, Delete } from '@
 import { InventariosService } from './inventarios.service';
 import { Inventario } from './entities/inventario.entity';
 import { CreateInventoryDto } from './dto/create-inventario.dto';
-import { UpdateEmpleadoDto } from 'src/empleados/dto/update-empleado.dto';
 import { UpdateInventoryDto } from './dto/update-inventario.dto';
 
 @Controller('inventarios')
@@ -18,7 +17,7 @@ export class InventariosController {
     return await this.inventarioService.getInventory(id);
   }
   @Post()
-  async createInventory(@Body() newInventory: CreateInventoryDto): Promise<Inventario> {
+  async createInventario(@Body() newInventory: CreateInventoryDto): Promise<Inventario> {
     return await this.inventarioService.createInventario(newInventory);
   }
   @Put(':id')

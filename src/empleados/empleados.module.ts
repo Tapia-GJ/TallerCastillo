@@ -13,7 +13,7 @@ import { AdelantoSueldo } from 'src/sueldos/entities/adelanta_sueldo.entity';
         RegistroAsistencia,
         AdelantoSueldo
     ])
-  ],
+  ], 
   providers: [
     EmpleadosService
   ],
