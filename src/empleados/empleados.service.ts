@@ -1,8 +1,8 @@
-import { Injectable, HttpException} from '@nestjs/common';
+import { Injectable} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Empleado } from './entities/empleado.entity';
 import { Repository } from 'typeorm';
-import { EmpleadosModule } from './empleados.module';
+// import { EmpleadosModule } from './empleados.module';
 import { CreateEmpleadoDto } from './dto/create-empleado.dto';
 import { UpdateEmpleadoDto } from './dto/update-empleado.dto';
 
@@ -13,7 +13,7 @@ export class EmpleadosService {
     public findAll(){
         return this.usersRepository.find()
     }
- 
+
     public createEmpleado(empleado: CreateEmpleadoDto){
         const newEmpleado = this.usersRepository.create(empleado)
         return this.usersRepository.save(newEmpleado)

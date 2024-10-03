@@ -3,7 +3,7 @@ import { EmpleadosService } from './empleados.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Empleado } from './entities/empleado.entity';
 import { EmpleadoController } from './empleados.controller';
-import { RegistroAsistencia } from 'src/asistencias/entities/asistencia.entity';
+import { RegistroAsistencia } from 'src/asistencias/entities/asistencias.entity';
 import { AdelantoSueldo } from 'src/sueldos/entities/adelanta_sueldo.entity';
 
 @Module({
@@ -13,7 +13,7 @@ import { AdelantoSueldo } from 'src/sueldos/entities/adelanta_sueldo.entity';
         RegistroAsistencia,
         AdelantoSueldo
     ])
-  ], 
+  ],
   providers: [
     EmpleadosService
   ],

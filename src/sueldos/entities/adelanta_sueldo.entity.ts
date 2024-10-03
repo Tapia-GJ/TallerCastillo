@@ -1,7 +1,8 @@
 import { Empleado } from 'src/empleados/entities/empleado.entity';
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, BeforeInsert, BeforeUpdate } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, Unique } from 'typeorm';
 
 @Entity()
+@Unique(['empleado']) // Asegura que no se puedan tener múltiples registros con el mismo empleado
 export class AdelantoSueldo {
   @PrimaryGeneratedColumn()
   id: number;
@@ -32,22 +33,4 @@ export class AdelantoSueldo {
 
   @ManyToOne(() => Empleado, empleado => empleado.adelantosSueldo, { eager: true })
   empleado: Empleado;
-
-  @BeforeInsert()
-  @BeforeUpdate()
-  validateAndCalculate() {
-    if (!this.empleado || typeof this.empleado.sueldo_semanal !== 'number') {
-      throw new Error('Empleado no encontrado o sueldo semanal no disponible');
-    }
-
-    this.sueldoneto = this.empleado.sueldo_semanal;
-
-    const totalAdelanto = this.montolunes + this.montomartes + this.montomiercoles + this.montojueves + this.montoviernes + this.montosabado;
-
-    if (totalAdelanto <= this.sueldoneto) {
-      this.sueldodisponible = this.sueldoneto - totalAdelanto;
-    } else {
-      throw new Error('El adelanto total excede el sueldo neto.');
-    }
-  }
 }

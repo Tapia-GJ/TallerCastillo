@@ -1,6 +1,7 @@
 // Empleado.entity.ts
 import { AdelantoSueldo } from 'src/sueldos/entities/adelanta_sueldo.entity';
-import { RegistroAsistencia } from '../../asistencias/entities/asistencia.entity';
+import { RegistroAsistencia } from 'src/asistencias/entities/asistencias.entity'
+import { Herramienta } from 'src/herramientas/entities/herramienta.entity'; 
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 
 @Entity()
@@ -28,4 +29,7 @@ export class Empleado {
 
   @OneToMany(() => AdelantoSueldo, adelanto => adelanto.empleado)
   adelantosSueldo: AdelantoSueldo[];
+  
+  @OneToMany(() => Herramienta, herramienta => herramienta.empleado) // Relación con Herramienta
+  herramientas: Herramienta[];
 }

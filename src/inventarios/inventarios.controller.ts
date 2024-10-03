@@ -17,7 +17,7 @@ export class InventariosController {
     return await this.inventarioService.getInventory(id);
   }
   @Post()
-  async createInventario(@Body() newInventory: CreateInventoryDto): Promise<Inventario> {
+  async createInventory(@Body() newInventory: CreateInventoryDto): Promise<Inventario> {
     return await this.inventarioService.createInventario(newInventory);
   }
   @Put(':id')

@@ -8,13 +8,13 @@ export class Inventario {
   @Column()
   nombre: string;
 
-  @Column()
+  @Column('text')
   descripcion: string;
 
   @Column()
   departamento: string;
 
-  @Column()
+  @Column('int')
   cantidad: number;
 
   @Column()

@@ -4,7 +4,7 @@ import { Controller, Get, Post, Put, Delete, Param, Body, ParseIntPipe } from '@
 import { EmpleadosService } from './empleados.service';
 import { Empleado } from './entities/empleado.entity';
 import { CreateEmpleadoDto } from './dto/create-empleado.dto';
-import internal from 'stream';
+// import internal from 'stream';
 import { UpdateEmpleadoDto } from './dto/update-empleado.dto';
 
 @Controller('empleados')
@@ -24,6 +24,7 @@ export class EmpleadoController {
 
   @Post()
   async createEmpleado(@Body() newEmpleado: CreateEmpleadoDto): Promise<Empleado> {
+    console.log(newEmpleado);
     return await this.empleadoService.createEmpleado(newEmpleado);
   }
 

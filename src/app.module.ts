@@ -6,9 +6,12 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { EmpleadosModule } from './empleados/empleados.module';
 import { InventariosModule } from './inventarios/inventarios.module';
-import { AsistenciasModule } from './asistencias/asistencias.module';
+import {AsistenciasModule} from './asistencias/asistencias.module'
+import { AdelantoSueldoModule } from './sueldos/adelanta_sueldo.module';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
+import { HerramientasModule } from './herramientas/herramientas.module';
+import { EmpresaModule } from './empresa/empresa.module';
 
 
 
@@ -31,10 +34,12 @@ import { AuthModule } from './auth/auth.module';
     EmpleadosModule,
     InventariosModule,
     AsistenciasModule,
+    AdelantoSueldoModule,
     UsersModule,
     AuthModule,
-    // AdelantoSueldoModule,
-  ],
+    HerramientasModule,
+    EmpresaModule,
+    ],
   controllers: [AppController],
   providers: [
     AppService,

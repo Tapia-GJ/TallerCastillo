@@ -4,7 +4,8 @@ import { RegisterDto } from './dto/register.dto';
 import * as bcrypt from 'bcrypt';
 import { LoginDto } from './dto/login.dto';
 import { JwtService } from '@nestjs/jwt';
-
+import {serialize} from 'cookie';
+ 
 @Injectable()
 export class AuthService {
     constructor(private readonly userService: UsersService, private readonly jwtService: JwtService){}
@@ -20,7 +21,6 @@ export class AuthService {
     }
 
     async login(loginDto: LoginDto){
-        console.log(loginDto);
         const user = await this.userService.findOneByUser(loginDto.nameUser);
         if(!user){
             throw new UnauthorizedException('Email or password is wrong');
@@ -29,7 +29,6 @@ export class AuthService {
         if(!isPasswordValid){
             throw new UnauthorizedException('password is wrong');
         }
-
         const payload = {nameUser: user.nameUser};
         const token = await this.jwtService.signAsync(payload);
         return {token, user};

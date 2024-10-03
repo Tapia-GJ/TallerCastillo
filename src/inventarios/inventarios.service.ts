@@ -10,7 +10,7 @@ export class InventariosService {
     constructor(@InjectRepository(Inventario)private usersRepository: Repository<Inventario>){}
     
     public findAll(){
-        return this.usersRepository.find() 
+        return this.usersRepository.find()
     }
 
     public createInventario(inventory: CreateInventoryDto){
